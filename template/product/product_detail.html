@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.title }}{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-4">{{ product.title }}</h1>
+<p class="mb-4 text-gray-700">{{ product.description }}</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <img src="{{ product.image1.url }}" class="rounded shadow">
+    <img src="{{ product.image2.url }}" class="rounded shadow">
+    <img src="{{ product.image3.url }}" class="rounded shadow">
+</div>
+<p class="text-xl font-bold">Price: ${{ product.price }}</p>
+{% endblock %}

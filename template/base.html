@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Product Page{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+<!-- 🔍 Search Navigation -->
+<nav class="bg-white shadow p-4 mb-6">
+    <div class="flex items-center justify-between container mx-auto">
+        <a href="/" class="text-2xl font-bold text-blue-600">SPABD</a>
+        
+        <!-- ✅ Global Search Form -->
+        <form method="get" action="{% url 'product-list' %}" class="flex w-full max-w-md ml-4">
+            <input type="text" name="q" placeholder="Search products..." value="{{ request.GET.q }}" class="w-full p-2 border border-gray-300 rounded-l">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-r">Search</button>
+        </form>
+    </div>
+</nav>
+
+<!-- 👇 Page Content -->
+<div class="container mx-auto px-4">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>
